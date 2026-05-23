@@ -1,0 +1,109 @@
+aid: swell
+name: Swell
+description: >-
+  Swell is a composable headless commerce platform that gives developers and
+  brands API-first building blocks for storefronts, subscriptions, B2B, and
+  multi-region commerce. It exposes a server-side Backend API for managing
+  products, orders, customers, content, and operations, plus a client-side
+  Frontend (Storefront) API and Swell.js / Node SDKs for building custom
+  shopping experiences on any stack.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/swell/refs/heads/main/apis.yml
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+tags:
+  - Commerce
+  - Headless Commerce
+  - Composable Commerce
+  - Ecommerce
+  - Storefront
+  - Subscriptions
+  - B2B
+  - Products
+  - Orders
+  - Customers
+apis:
+  - aid: swell:backend-api
+    name: Swell Backend API
+    description: >-
+      Server-side REST API for managing the full commerce model in Swell,
+      including products, variants, stock, categories, orders, carts, payments,
+      refunds, shipments, subscriptions, customers, discounts, gift cards,
+      content models, webhooks, and file storage. Designed for use from
+      Node.js, PHP, or any server-side environment.
+    humanURL: https://developers.swell.is/backend-api/introduction
+    baseURL: https://api.swell.store
+    tags:
+      - Backend API
+      - REST
+      - Products
+      - Orders
+      - Subscriptions
+      - Customers
+      - Webhooks
+    properties:
+      - type: Documentation
+        url: https://developers.swell.is/backend-api/introduction
+      - type: Authentication
+        url: https://developers.swell.is/backend-api/authentication
+      - type: SDK
+        url: https://github.com/swellstores/swell-node
+      - type: SDK
+        url: https://github.com/swellstores/swell-php
+  - aid: swell:frontend-api
+    name: Swell Frontend (Storefront) API
+    description: >-
+      Client-side API and Swell.js SDK for building custom storefronts. Exposes
+      products, categories, accounts, sessions, addresses, credit cards, carts,
+      orders, payments, coupons, promotions, gift cards, subscriptions, store
+      settings, currencies, localization, navigation menus, and payment
+      options. Includes a GraphQL frontend option for headless storefronts.
+    humanURL: https://developers.swell.is/frontend-api/introduction
+    baseURL: https://api.swell.store
+    tags:
+      - Frontend API
+      - Storefront
+      - JavaScript SDK
+      - GraphQL
+      - Carts
+      - Checkout
+    properties:
+      - type: Documentation
+        url: https://developers.swell.is/frontend-api/introduction
+      - type: SDK
+        url: https://github.com/swellstores/swell-js
+      - type: SDK
+        url: https://www.npmjs.com/package/swell-js
+common:
+  - type: Website
+    url: https://www.swell.is
+  - type: Portal
+    url: https://developers.swell.is
+  - type: Documentation
+    url: https://developers.swell.is
+  - type: SignUp
+    url: https://www.swell.is/signup
+  - type: Login
+    url: https://admin.swell.store
+  - type: Pricing
+    url: https://www.swell.is/pricing
+  - type: Blog
+    url: https://www.swell.is/blog
+  - type: GitHub
+    url: https://github.com/swellstores
+  - type: Storefronts
+    url: https://www.swell.is/storefronts
+  - type: Apps
+    url: https://www.swell.is/apps
+  - type: TermsOfService
+    url: https://www.swell.is/terms
+  - type: PrivacyPolicy
+    url: https://www.swell.is/privacy
+  - type: Support
+    url: https://support.swell.is
+maintainers:
+  - FN: Kin Lane
+    email: kinlane@gmail.com
