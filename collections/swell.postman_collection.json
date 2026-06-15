@@ -1,0 +1,1219 @@
+{
+  "item": [
+    {
+      "id": "ff21f9cc-ac17-4404-a8dc-cc445988b1eb",
+      "name": "Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70b4845b-6411-49c1-888a-be804f23e88f",
+          "name": "List products",
+          "request": {
+            "name": "List products",
+            "description": {},
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "15",
+                  "description": "Records per page (1-1000, default 15)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "where",
+                  "value": "<string>",
+                  "description": "JSON-encoded filter criteria."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3d2d3cb-776f-4573-9282-30eb3cf47ce9",
+              "name": "Paginated list of products",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "15"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "where",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7588,\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"price\": 9732.333987712802,\n      \"sku\": \"string\",\n      \"active\": true,\n      \"purchase_options\": {\n        \"key_0\": true\n      },\n      \"options\": [\n        {\n          \"key_0\": 2512,\n          \"key_1\": 2046\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": 3100,\n          \"key_2\": true\n        }\n      ],\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"slug\": \"string\",\n      \"type\": \"subscription\",\n      \"delivery\": \"shipment\",\n      \"date_created\": \"1953-01-03T09:45:10.909Z\",\n      \"date_updated\": \"1968-09-21T21:17:13.764Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"price\": 1471.5915401743907,\n      \"sku\": \"string\",\n      \"active\": false,\n      \"purchase_options\": {\n        \"key_0\": \"string\"\n      },\n      \"options\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": 5570.706592705872\n        },\n        {\n          \"key_0\": 8097.828809420454,\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      ],\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"slug\": \"string\",\n      \"type\": \"giftcard\",\n      \"delivery\": \"giftcard\",\n      \"date_created\": \"1997-08-25T14:50:25.947Z\",\n      \"date_updated\": \"1963-06-15T16:52:30.276Z\"\n    }\n  ],\n  \"pages\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f191f43a-e3f7-4203-950a-8804a52541a2",
+          "name": "Create a product",
+          "request": {
+            "name": "Create a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"price\": \"<float>\",\n  \"sku\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"purchase_options\": {\n    \"key_0\": false\n  },\n  \"options\": [\n    {\n      \"key_0\": 8376\n    },\n    {\n      \"key_0\": 1901.0880528748896,\n      \"key_1\": 4209\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "04e06122-5e7d-4756-80b5-e118d1d401a7",
+              "name": "Created product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"price\": \"<float>\",\n  \"sku\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"purchase_options\": {\n    \"key_0\": 9227.723416751307,\n    \"key_1\": \"string\"\n  },\n  \"options\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": false\n    },\n    {\n      \"key_0\": 5869.479018319686\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"price\": 2151.558001585101,\n  \"sku\": \"string\",\n  \"active\": true,\n  \"purchase_options\": {\n    \"key_0\": \"string\"\n  },\n  \"options\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": 6378\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  ],\n  \"description\": \"string\",\n  \"id\": \"string\",\n  \"slug\": \"string\",\n  \"type\": \"standard\",\n  \"delivery\": \"giftcard\",\n  \"date_created\": \"1952-05-31T21:23:05.121Z\",\n  \"date_updated\": \"2011-01-23T15:03:01.553Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ea25154-040b-497e-a237-dc5f6295196c",
+          "name": "Retrieve a product",
+          "request": {
+            "name": "Retrieve a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Comma-separated related fields to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated specific fields to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "99fa82b9-7780-48e1-96ae-9f76fcbc8c29",
+              "name": "Product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"price\": 2151.558001585101,\n  \"sku\": \"string\",\n  \"active\": true,\n  \"purchase_options\": {\n    \"key_0\": \"string\"\n  },\n  \"options\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": 6378\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  ],\n  \"description\": \"string\",\n  \"id\": \"string\",\n  \"slug\": \"string\",\n  \"type\": \"standard\",\n  \"delivery\": \"giftcard\",\n  \"date_created\": \"1952-05-31T21:23:05.121Z\",\n  \"date_updated\": \"2011-01-23T15:03:01.553Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76e818c0-e6a5-485e-b642-acca63d2f4c9",
+          "name": "Update a product",
+          "request": {
+            "name": "Update a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Comma-separated related fields to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated specific fields to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"price\": \"<float>\",\n  \"sku\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"purchase_options\": {\n    \"key_0\": false\n  },\n  \"options\": [\n    {\n      \"key_0\": 8376\n    },\n    {\n      \"key_0\": 1901.0880528748896,\n      \"key_1\": 4209\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57e66c26-c458-40f0-b504-c80a132bc76d",
+              "name": "Updated product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"price\": \"<float>\",\n  \"sku\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"purchase_options\": {\n    \"key_0\": 9227.723416751307,\n    \"key_1\": \"string\"\n  },\n  \"options\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": false\n    },\n    {\n      \"key_0\": 5869.479018319686\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"price\": 2151.558001585101,\n  \"sku\": \"string\",\n  \"active\": true,\n  \"purchase_options\": {\n    \"key_0\": \"string\"\n  },\n  \"options\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": 6378\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  ],\n  \"description\": \"string\",\n  \"id\": \"string\",\n  \"slug\": \"string\",\n  \"type\": \"standard\",\n  \"delivery\": \"giftcard\",\n  \"date_created\": \"1952-05-31T21:23:05.121Z\",\n  \"date_updated\": \"2011-01-23T15:03:01.553Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81b2cdc6-80fa-4ce6-a55a-c24ad5fbbf8c",
+          "name": "Delete a product",
+          "request": {
+            "name": "Delete a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Comma-separated related fields to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated specific fields to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b71fec93-2fd8-475c-a3af-6b323aff0290",
+              "name": "Deleted product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"price\": 2151.558001585101,\n  \"sku\": \"string\",\n  \"active\": true,\n  \"purchase_options\": {\n    \"key_0\": \"string\"\n  },\n  \"options\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": 6378\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  ],\n  \"description\": \"string\",\n  \"id\": \"string\",\n  \"slug\": \"string\",\n  \"type\": \"standard\",\n  \"delivery\": \"giftcard\",\n  \"date_created\": \"1952-05-31T21:23:05.121Z\",\n  \"date_updated\": \"2011-01-23T15:03:01.553Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bd171498-15ff-4ff0-bcb7-adb56ba8da7d",
+      "name": "Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "afd5d291-f2f1-434d-b7aa-79deed8147bc",
+          "name": "List orders",
+          "request": {
+            "name": "List orders",
+            "description": {},
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "15",
+                  "description": "Records per page (1-1000, default 15)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "where",
+                  "value": "<string>",
+                  "description": "JSON-encoded filter criteria."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4834939b-8718-4c05-8ad7-6d8b7e10ebda",
+              "name": "Paginated list of orders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "15"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "where",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9557,\n  \"results\": [\n    {\n      \"account_id\": \"string\",\n      \"items\": [\n        {\n          \"product_id\": \"string\",\n          \"quantity\": 3860,\n          \"price\": 1835.5442317135817\n        },\n        {\n          \"product_id\": \"string\",\n          \"quantity\": 4487,\n          \"price\": 6819.586041021291\n        }\n      ],\n      \"billing\": {\n        \"key_0\": 1083.2672760070216,\n        \"key_1\": \"string\"\n      },\n      \"shipping\": {\n        \"key_0\": 358,\n        \"key_1\": true\n      },\n      \"coupon_code\": \"string\",\n      \"comments\": \"string\",\n      \"gift\": false,\n      \"id\": \"string\",\n      \"number\": \"string\",\n      \"status\": \"canceled\",\n      \"grand_total\": 4448.282617442738,\n      \"payment_balance\": 4082.2704898532247,\n      \"date_created\": \"1974-09-01T08:07:42.089Z\"\n    },\n    {\n      \"account_id\": \"string\",\n      \"items\": [\n        {\n          \"product_id\": \"string\",\n          \"quantity\": 6678,\n          \"price\": 9190.294204861613\n        },\n        {\n          \"product_id\": \"string\",\n          \"quantity\": 5483,\n          \"price\": 1032.2915695401402\n        }\n      ],\n      \"billing\": {\n        \"key_0\": \"string\",\n        \"key_1\": 6554.434601485826,\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": true\n      },\n      \"shipping\": {\n        \"key_0\": false\n      },\n      \"coupon_code\": \"string\",\n      \"comments\": \"string\",\n      \"gift\": false,\n      \"id\": \"string\",\n      \"number\": \"string\",\n      \"status\": \"canceled\",\n      \"grand_total\": 6705.608187794224,\n      \"payment_balance\": 3757.502304126744,\n      \"date_created\": \"1987-02-25T23:36:05.091Z\"\n    }\n  ],\n  \"pages\": {\n    \"key_0\": 7510.108308121587\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a040108c-3f29-41de-b125-4443837368d2",
+          "name": "Create an order",
+          "request": {
+            "name": "Create an order",
+            "description": {},
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_id\": \"<string>\",\n  \"items\": [\n    {\n      \"product_id\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"price\": \"<float>\"\n    },\n    {\n      \"product_id\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"price\": \"<float>\"\n    }\n  ],\n  \"billing\": {\n    \"key_0\": 7079.66051025841,\n    \"key_1\": \"string\"\n  },\n  \"shipping\": {\n    \"key_0\": 4409,\n    \"key_1\": \"string\"\n  },\n  \"coupon_code\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"gift\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fff646b8-3379-467e-a06a-a5b992ad3682",
+              "name": "Created order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_id\": \"<string>\",\n  \"items\": [\n    {\n      \"product_id\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"price\": \"<float>\"\n    },\n    {\n      \"product_id\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"price\": \"<float>\"\n    }\n  ],\n  \"billing\": {\n    \"key_0\": false,\n    \"key_1\": 3547.642560555876,\n    \"key_2\": 1557\n  },\n  \"shipping\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": false\n  },\n  \"coupon_code\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"gift\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_id\": \"string\",\n  \"items\": [\n    {\n      \"product_id\": \"string\",\n      \"quantity\": 7806,\n      \"price\": 9175.996811665009\n    },\n    {\n      \"product_id\": \"string\",\n      \"quantity\": 4863,\n      \"price\": 5892.289626523627\n    }\n  ],\n  \"billing\": {\n    \"key_0\": true\n  },\n  \"shipping\": {\n    \"key_0\": 4002,\n    \"key_1\": \"string\"\n  },\n  \"coupon_code\": \"string\",\n  \"comments\": \"string\",\n  \"gift\": false,\n  \"id\": \"string\",\n  \"number\": \"string\",\n  \"status\": \"complete\",\n  \"grand_total\": 7667.050011414138,\n  \"payment_balance\": 7027.409603501139,\n  \"date_created\": \"1987-11-16T18:53:42.212Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "757e0824-8e4d-4ad2-9183-3ff9d00bc7f4",
+          "name": "Retrieve an order",
+          "request": {
+            "name": "Retrieve an order",
+            "description": {},
+            "url": {
+              "path": [
+                "orders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Comma-separated related fields to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated specific fields to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41a8b96a-1959-4fef-8d28-10a6e6c70019",
+              "name": "Order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_id\": \"string\",\n  \"items\": [\n    {\n      \"product_id\": \"string\",\n      \"quantity\": 7806,\n      \"price\": 9175.996811665009\n    },\n    {\n      \"product_id\": \"string\",\n      \"quantity\": 4863,\n      \"price\": 5892.289626523627\n    }\n  ],\n  \"billing\": {\n    \"key_0\": true\n  },\n  \"shipping\": {\n    \"key_0\": 4002,\n    \"key_1\": \"string\"\n  },\n  \"coupon_code\": \"string\",\n  \"comments\": \"string\",\n  \"gift\": false,\n  \"id\": \"string\",\n  \"number\": \"string\",\n  \"status\": \"complete\",\n  \"grand_total\": 7667.050011414138,\n  \"payment_balance\": 7027.409603501139,\n  \"date_created\": \"1987-11-16T18:53:42.212Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88bdc8d6-4074-4bf9-be2b-97ec2320ee76",
+          "name": "Update an order",
+          "request": {
+            "name": "Update an order",
+            "description": {},
+            "url": {
+              "path": [
+                "orders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Comma-separated related fields to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated specific fields to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_id\": \"<string>\",\n  \"items\": [\n    {\n      \"product_id\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"price\": \"<float>\"\n    },\n    {\n      \"product_id\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"price\": \"<float>\"\n    }\n  ],\n  \"billing\": {\n    \"key_0\": 7079.66051025841,\n    \"key_1\": \"string\"\n  },\n  \"shipping\": {\n    \"key_0\": 4409,\n    \"key_1\": \"string\"\n  },\n  \"coupon_code\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"gift\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "85931b1b-d445-4a20-8fae-df71d4f369c5",
+              "name": "Updated order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_id\": \"<string>\",\n  \"items\": [\n    {\n      \"product_id\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"price\": \"<float>\"\n    },\n    {\n      \"product_id\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"price\": \"<float>\"\n    }\n  ],\n  \"billing\": {\n    \"key_0\": false,\n    \"key_1\": 3547.642560555876,\n    \"key_2\": 1557\n  },\n  \"shipping\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": false\n  },\n  \"coupon_code\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"gift\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_id\": \"string\",\n  \"items\": [\n    {\n      \"product_id\": \"string\",\n      \"quantity\": 7806,\n      \"price\": 9175.996811665009\n    },\n    {\n      \"product_id\": \"string\",\n      \"quantity\": 4863,\n      \"price\": 5892.289626523627\n    }\n  ],\n  \"billing\": {\n    \"key_0\": true\n  },\n  \"shipping\": {\n    \"key_0\": 4002,\n    \"key_1\": \"string\"\n  },\n  \"coupon_code\": \"string\",\n  \"comments\": \"string\",\n  \"gift\": false,\n  \"id\": \"string\",\n  \"number\": \"string\",\n  \"status\": \"complete\",\n  \"grand_total\": 7667.050011414138,\n  \"payment_balance\": 7027.409603501139,\n  \"date_created\": \"1987-11-16T18:53:42.212Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d142959-68e5-454d-a32d-0ff03dfa8015",
+          "name": "Delete an order",
+          "request": {
+            "name": "Delete an order",
+            "description": {},
+            "url": {
+              "path": [
+                "orders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Comma-separated related fields to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated specific fields to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a53ef8e-b402-42c1-9ae2-3f380e844429",
+              "name": "Deleted order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_id\": \"string\",\n  \"items\": [\n    {\n      \"product_id\": \"string\",\n      \"quantity\": 7806,\n      \"price\": 9175.996811665009\n    },\n    {\n      \"product_id\": \"string\",\n      \"quantity\": 4863,\n      \"price\": 5892.289626523627\n    }\n  ],\n  \"billing\": {\n    \"key_0\": true\n  },\n  \"shipping\": {\n    \"key_0\": 4002,\n    \"key_1\": \"string\"\n  },\n  \"coupon_code\": \"string\",\n  \"comments\": \"string\",\n  \"gift\": false,\n  \"id\": \"string\",\n  \"number\": \"string\",\n  \"status\": \"complete\",\n  \"grand_total\": 7667.050011414138,\n  \"payment_balance\": 7027.409603501139,\n  \"date_created\": \"1987-11-16T18:53:42.212Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.swell.store",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ecb10923-0e23-4720-af45-ec49ab30e357",
+    "name": "Swell Backend API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Swell is a composable headless commerce platform exposing a server-side Backend API for managing products, orders, customers, and related resources. The HTTP API is organized around REST principles and is authenticated using your Store ID and a Secret Key issued from the Swell Developer dashboard. Note: Swell's official SDKs use a proprietary wire protocol on port 8443 for performance; this OpenAPI documents the HTTP-equivalent REST shape used by the Backend API.\n\nContact Support:\n Name: Swell developer documentation",
+      "type": "text/plain"
+    }
+  }
+}
