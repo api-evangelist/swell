@@ -49,9 +49,9 @@ apis:
     url: https://developers.swell.is/backend-api/introduction
   - type: Authentication
     url: https://developers.swell.is/backend-api/authentication
-  - type: SDK
+  - type: SDKs
     url: https://github.com/swellstores/swell-node
-  - type: SDK
+  - type: SDKs
     url: https://github.com/swellstores/swell-php
 - aid: swell:frontend-api
   name: Swell Frontend (Storefront) API
@@ -73,9 +73,9 @@ apis:
   properties:
   - type: Documentation
     url: https://developers.swell.is/frontend-api/introduction
-  - type: SDK
+  - type: SDKs
     url: https://github.com/swellstores/swell-js
-  - type: SDK
+  - type: SDKs
     url: https://www.npmjs.com/package/swell-js
   - url: graphql/swell-graphql.md
     type: GraphQL
@@ -86,7 +86,7 @@ common:
   url: https://developers.swell.is
 - type: Documentation
   url: https://developers.swell.is
-- type: SignUp
+- type: Signup
   url: https://www.swell.is/signup
 - type: Login
   url: https://admin.swell.store
