@@ -80,6 +80,10 @@ apis:
   - url: graphql/swell-graphql.md
     type: GraphQL
 common:
+- type: DomainSecurity
+  url: security/swell-domain-security.yml
+- type: Authentication
+  url: authentication/swell-authentication.yml
 - type: Website
   url: https://www.swell.is
 - type: Portal

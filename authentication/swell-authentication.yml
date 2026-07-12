@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/swell-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic auth where the username is your Swell Store ID and the password is
+    your Secret Key from the Developer dashboard.
+  sources:
+  - openapi/swell-openapi.yml
