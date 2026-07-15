@@ -80,6 +80,8 @@ apis:
   - url: graphql/swell-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/swell-agentic-access.yml
 - type: DomainSecurity
   url: security/swell-domain-security.yml
 - type: Authentication
