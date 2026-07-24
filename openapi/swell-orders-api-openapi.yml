@@ -1,0 +1,225 @@
+openapi: 3.1.0
+info:
+  title: Swell Backend Orders API
+  description: 'Swell is a composable headless commerce platform exposing a server-side Backend API for managing products, orders, customers, and related resources. The HTTP API is organized around REST principles and is authenticated using your Store ID and a Secret Key issued from the Swell Developer dashboard. Note: Swell''s official SDKs use a proprietary wire protocol on port 8443 for performance; this OpenAPI documents the HTTP-equivalent REST shape used by the Backend API.'
+  version: 1.0.0
+  contact:
+    name: Swell developer documentation
+    url: https://developers.swell.is/backend-api/introduction
+servers:
+- url: https://api.swell.store
+  description: Production
+security:
+- basicAuth: []
+tags:
+- name: Orders
+paths:
+  /orders:
+    get:
+      tags:
+      - Orders
+      summary: List orders
+      operationId: listOrders
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Where'
+      - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: Paginated list of orders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderCollection'
+    post:
+      tags:
+      - Orders
+      summary: Create an order
+      operationId: createOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderInput'
+      responses:
+        '200':
+          description: Created order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+  /orders/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    - $ref: '#/components/parameters/Expand'
+    - $ref: '#/components/parameters/Fields'
+    get:
+      tags:
+      - Orders
+      summary: Retrieve an order
+      operationId: getOrder
+      responses:
+        '200':
+          description: Order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+    put:
+      tags:
+      - Orders
+      summary: Update an order
+      operationId: updateOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderInput'
+      responses:
+        '200':
+          description: Updated order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+    delete:
+      tags:
+      - Orders
+      summary: Delete an order
+      operationId: deleteOrder
+      responses:
+        '200':
+          description: Deleted order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+components:
+  parameters:
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: string
+    Expand:
+      in: query
+      name: expand
+      schema:
+        type: string
+      description: Comma-separated related fields to include.
+    Where:
+      in: query
+      name: where
+      schema:
+        type: string
+      description: JSON-encoded filter criteria.
+    Fields:
+      in: query
+      name: fields
+      schema:
+        type: string
+      description: Comma-separated specific fields to return.
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+        default: 15
+      description: Records per page (1-1000, default 15).
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+  schemas:
+    OrderInput:
+      type: object
+      required:
+      - account_id
+      - items
+      properties:
+        account_id:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            required:
+            - product_id
+            - quantity
+            properties:
+              product_id:
+                type: string
+              quantity:
+                type: integer
+                minimum: 1
+              price:
+                type: number
+                format: float
+        billing:
+          type: object
+          additionalProperties: true
+        shipping:
+          type: object
+          additionalProperties: true
+        coupon_code:
+          type: string
+        comments:
+          type: string
+        gift:
+          type: boolean
+    OrderCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+        pages:
+          type: object
+          additionalProperties: true
+    Order:
+      allOf:
+      - $ref: '#/components/schemas/OrderInput'
+      - type: object
+        properties:
+          id:
+            type: string
+          number:
+            type: string
+          status:
+            type: string
+            enum:
+            - pending
+            - draft
+            - payment_pending
+            - delivery_pending
+            - hold
+            - complete
+            - canceled
+          grand_total:
+            type: number
+            format: float
+          payment_balance:
+            type: number
+            format: float
+          date_created:
+            type: string
+            format: date-time
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic auth where the username is your Swell Store ID and the password is your Secret Key from the Developer dashboard.

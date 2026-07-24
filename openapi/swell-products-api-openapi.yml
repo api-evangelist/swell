@@ -1,0 +1,219 @@
+openapi: 3.1.0
+info:
+  title: Swell Backend Orders Products API
+  description: 'Swell is a composable headless commerce platform exposing a server-side Backend API for managing products, orders, customers, and related resources. The HTTP API is organized around REST principles and is authenticated using your Store ID and a Secret Key issued from the Swell Developer dashboard. Note: Swell''s official SDKs use a proprietary wire protocol on port 8443 for performance; this OpenAPI documents the HTTP-equivalent REST shape used by the Backend API.'
+  version: 1.0.0
+  contact:
+    name: Swell developer documentation
+    url: https://developers.swell.is/backend-api/introduction
+servers:
+- url: https://api.swell.store
+  description: Production
+security:
+- basicAuth: []
+tags:
+- name: Products
+paths:
+  /products:
+    get:
+      tags:
+      - Products
+      summary: List products
+      operationId: listProducts
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Where'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: Paginated list of products
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCollection'
+    post:
+      tags:
+      - Products
+      summary: Create a product
+      operationId: createProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInput'
+      responses:
+        '200':
+          description: Created product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /products/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    - $ref: '#/components/parameters/Expand'
+    - $ref: '#/components/parameters/Fields'
+    get:
+      tags:
+      - Products
+      summary: Retrieve a product
+      operationId: getProduct
+      responses:
+        '200':
+          description: Product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    put:
+      tags:
+      - Products
+      summary: Update a product
+      operationId: updateProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInput'
+      responses:
+        '200':
+          description: Updated product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    delete:
+      tags:
+      - Products
+      summary: Delete a product
+      operationId: deleteProduct
+      responses:
+        '200':
+          description: Deleted product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+components:
+  parameters:
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: string
+    Expand:
+      in: query
+      name: expand
+      schema:
+        type: string
+      description: Comma-separated related fields to include.
+    Where:
+      in: query
+      name: where
+      schema:
+        type: string
+      description: JSON-encoded filter criteria.
+    Fields:
+      in: query
+      name: fields
+      schema:
+        type: string
+      description: Comma-separated specific fields to return.
+    Search:
+      in: query
+      name: search
+      schema:
+        type: string
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+        default: 15
+      description: Records per page (1-1000, default 15).
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+  schemas:
+    Product:
+      allOf:
+      - $ref: '#/components/schemas/ProductInput'
+      - type: object
+        properties:
+          id:
+            type: string
+          slug:
+            type: string
+          type:
+            type: string
+            enum:
+            - standard
+            - subscription
+            - bundle
+            - giftcard
+          delivery:
+            type: string
+            enum:
+            - shipment
+            - subscription
+            - giftcard
+          date_created:
+            type: string
+            format: date-time
+          date_updated:
+            type: string
+            format: date-time
+    ProductInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        price:
+          type: number
+          format: float
+        sku:
+          type: string
+        active:
+          type: boolean
+        purchase_options:
+          type: object
+          additionalProperties: true
+        options:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        description:
+          type: string
+    ProductCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        pages:
+          type: object
+          additionalProperties: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic auth where the username is your Swell Store ID and the password is your Secret Key from the Developer dashboard.
