@@ -8,7 +8,20 @@ description: >-
   Frontend (Storefront) API and Swell.js / Node SDKs for building custom
   shopping experiences on any stack.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/swell.png
 url: >-
   https://raw.githubusercontent.com/api-evangelist/swell/refs/heads/main/apis.yml
 created: '2026-05-23'
@@ -29,11 +42,10 @@ apis:
 - aid: swell:backend-api
   name: Swell Backend API
   description: >-
-    Server-side REST API for managing the full commerce model in Swell,
-    including products, variants, stock, categories, orders, carts, payments,
-    refunds, shipments, subscriptions, customers, discounts, gift cards,
-    content models, webhooks, and file storage. Designed for use from
-    Node.js, PHP, or any server-side environment.
+    Server-side REST API for managing the full commerce model in Swell, including products, variants,
+    stock, categories, orders, carts, payments, refunds, shipments, subscriptions, customers, discounts,
+    gift cards, content models, webhooks, and file storage. Designed for use from Node.js, PHP, or any
+    server-side environment.
   humanURL: https://developers.swell.is/backend-api/introduction
   baseURL: https://api.swell.store
   tags:
@@ -56,11 +68,10 @@ apis:
 - aid: swell:frontend-api
   name: Swell Frontend (Storefront) API
   description: >-
-    Client-side API and Swell.js SDK for building custom storefronts. Exposes
-    products, categories, accounts, sessions, addresses, credit cards, carts,
-    orders, payments, coupons, promotions, gift cards, subscriptions, store
-    settings, currencies, localization, navigation menus, and payment
-    options. Includes a GraphQL frontend option for headless storefronts.
+    Client-side API and Swell.js SDK for building custom storefronts. Exposes products, categories, accounts,
+    sessions, addresses, credit cards, carts, orders, payments, coupons, promotions, gift cards, subscriptions,
+    store settings, currencies, localization, navigation menus, and payment options. Includes a GraphQL
+    frontend option for headless storefronts.
   humanURL: https://developers.swell.is/frontend-api/introduction
   baseURL: https://api.swell.store
   tags:
@@ -79,6 +90,26 @@ apis:
     url: https://www.npmjs.com/package/swell-js
   - url: graphql/swell-graphql.md
     type: GraphQL
+- aid: swell:swell-orders-api
+  name: Swell Orders API
+  description: The Orders API from Swell — 2 operation(s) for orders.
+  humanURL: https://developers.swell.is/backend-api/introduction
+  baseURL: https://api.swell.store
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/swell-orders-api-openapi.yml
+- aid: swell:swell-products-api
+  name: Swell Products API
+  description: The Products API from Swell — 2 operation(s) for products.
+  humanURL: https://developers.swell.is/backend-api/introduction
+  baseURL: https://api.swell.store
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/swell-products-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/swell-agentic-access.yml
