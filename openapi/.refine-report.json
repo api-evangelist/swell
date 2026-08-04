@@ -1,0 +1,16 @@
+{
+  "provider": "swell",
+  "sources": [
+    "swell-orders-api-openapi.yml",
+    "swell-products-api-openapi.yml"
+  ],
+  "outputs": [
+    "swell-orders-api-openapi.yml",
+    "swell-products-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
